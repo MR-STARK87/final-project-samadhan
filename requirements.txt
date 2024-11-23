@@ -1,6 +1,17 @@
-streamlit
-requests
-folium
-geopy.geocoders
-streamlit_folium
-google.generativeai
+# Streamlit for web app development
+streamlit>=1.25.0
+
+# Google Generative AI SDK for interaction with the model
+google-generativeai>=0.2.0
+
+# Geopy for geocoding user-provided locations
+geopy>=2.3.0
+
+# Requests library for making HTTP requests (Google Places API)
+requests>=2.31.0
+
+# Folium for creating interactive maps
+folium>=0.14.0
+
+# Streamlit Folium for displaying Folium maps in Streamlit apps
+streamlit-folium>=0.11.0
