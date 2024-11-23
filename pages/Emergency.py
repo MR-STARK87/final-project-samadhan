@@ -27,7 +27,7 @@ if location_input:
             st.subheader(f"Coordinates: {latitude}, {longitude}")
             
             # Google API request
-            API_KEY = "AIzaSyApF_u1dbrycoaXUPx_GZO4A1OcsUooFOA"
+            API_KEY = ""
             url = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={latitude},{longitude}&radius=5000&type=hospital&key={API_KEY}"
             response = requests.get(url).json()
             
