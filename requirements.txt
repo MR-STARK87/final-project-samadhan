@@ -1,0 +1,6 @@
+streamlit
+requests
+folium
+geopy.geocoders
+streamlit_folium
+google.generativeai
