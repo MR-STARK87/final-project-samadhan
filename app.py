@@ -46,12 +46,20 @@ if user_input:
     # Add user's message to the conversation
     st.session_state.conversation.append({"role": "user", "content": user_input})
 
-    # Use a spinner while generating the bot's response
-    with st.spinner("Thinking..."):
-        response = model.generate_content(user_input)
-        if response and response.text:
-            # Add bot's response to the conversation
-            st.session_state.conversation.append({"role": "ai", "content": response.text})
+    # Easter egg: Check for specific triggers
+    if user_input.lower().strip() == "creator":
+        easter_egg_response = "Whoa! You cracked the code! My creator? Oh, it's none other than Syed Zaid Ali — the genius, the mastermind, the legend... and the man who keeps saying 'I Am The Best!' 😎🎩✨"
+        st.session_state.conversation.append({"role": "ai", "content": easter_egg_response})
+    elif user_input.lower().strip() == "team":
+        team_response = "Made with love by team Debug Dynasty! \u2764 Sheikh Sahil(the leader) Syed Zaid Ali(the mastermind) Dip Banerjee(the support) Mohd Sami Ullah(well, yeh bas paani pila raha tha lakar) Sorry yr sami bhai i love you i am sorry"
+        st.session_state.conversation.append({"role": "ai", "content": team_response})
+    else:
+        # Use a spinner while generating the bot's response
+        with st.spinner("Thinking..."):
+            response = model.generate_content(user_input)
+            if response and response.text:
+                # Add bot's response to the conversation
+                st.session_state.conversation.append({"role": "ai", "content": response.text})
 
     # Reset user typing state after response generation
     st.session_state.user_typing = False
@@ -59,10 +67,8 @@ if user_input:
 # Display messages in an alternate fashion (timeline)
 for message in st.session_state.conversation:
     with st.chat_message(message["role"]):
-        st.success(message["content"])
+       st.success(message["content"])
 
 # Sidebar with health tips
 st.sidebar.title("Health Tips")
 st.sidebar.subheader(random.choice(health_tips))
-
-
